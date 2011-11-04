@@ -13,7 +13,7 @@
 
     Story *_story;
     UIWebView *_webView;
-
+    BOOL isLoading;
 
 }
 

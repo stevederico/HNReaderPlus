@@ -8,15 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import "StoryFetcher.h"
+#import "EGORefreshTableHeaderView.h"
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController <StoryFetcherDelegate> {
+@interface MasterViewController : UITableViewController <StoryFetcherDelegate,EGORefreshTableHeaderDelegate> {
     NSArray *_stories;
     StoryFetcher *_fetcher;
+    
+	EGORefreshTableHeaderView *_refreshHeaderView;
+    BOOL _reloading;
+
 }
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 @property (nonatomic, retain) NSArray *stories;
 @property (nonatomic, retain) StoryFetcher *fetcher;
 - (void)downloadStories;
+- (void)reloadTableViewDataSource;
+- (void)doneLoadingTableViewData;
 @end

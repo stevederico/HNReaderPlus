@@ -10,6 +10,7 @@
 #import "StoryFetcher.h"
 #import "DetailViewController.h"
 
+
 @implementation MasterViewController
 
 @synthesize detailViewController = _detailViewController,stories = _stories, fetcher = _fetcher;
@@ -35,8 +36,94 @@
 
 #pragma mark - View lifecycle
 
+- (void)setupRefreshHeader{
+	if (_refreshHeaderView == nil) {
+		
+		EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.tableView.bounds.size.height, self.view.frame.size.width, self.tableView.bounds.size.height)];
+		view.delegate = self;
+		[self.tableView addSubview:view];
+		_refreshHeaderView = view;
+
+		
+	}
+	
+	//  update the last update date
+	[_refreshHeaderView refreshLastUpdatedDate];
+
+}
+
+
+
+
+#pragma mark -
+#pragma mark Data Source Loading / Reloading Methods
+
+- (void)reloadTableViewDataSource{
+	
+	//  should be calling your tableviews data source model to reload
+	//  put here just for demo
+    [self downloadStories];
+	_reloading = YES;
+	
+}
+
+- (void)doneLoadingTableViewData{
+	
+	//  model should call this when its done loading
+	_reloading = NO;
+	[_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
+	
+}
+
+
+#pragma mark -
+#pragma mark UIScrollViewDelegate Methods
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{	
+	
+	[_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+    
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+	
+	[_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+	
+}
+
+
+#pragma mark -
+#pragma mark EGORefreshTableHeaderDelegate Methods
+
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view{
+	
+	[self reloadTableViewDataSource];
+	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0];
+	
+}
+
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view{
+	
+	return _reloading; // should return if data source model is reloading
+	
+}
+
+- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view{
+	
+	return [NSDate date]; // should return date data source was last changed
+	
+}
+
+
+
+
+
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupRefreshHeader];
        [self downloadStories];
             self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
     
@@ -57,7 +144,8 @@
 
 - (void)storiesComplete:(NSArray*)newStories {
     self.stories = newStories;
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
+    [self doneLoadingTableViewData];
 }
 
 - (void)viewDidUnload {
@@ -91,6 +179,9 @@
     }
 }
 
+
+
+
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -112,7 +203,7 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
             cell.textLabel.numberOfLines = 0;
-     Ç       cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
+            cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
             cell.selectionStyle = UITableViewCellSelectionStyleGray;
         }
     }

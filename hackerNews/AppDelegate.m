@@ -23,7 +23,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        MasterViewController *masterViewController = [[MasterViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        MasterViewController *masterViewController = [[MasterViewController alloc] initWithStyle:UITableViewStylePlain];
         self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
         self.window.rootViewController = self.navigationController;
     } else {
