@@ -25,10 +25,6 @@
 		7B548D791463F3F900DE32EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B548D781463F3F900DE32EB /* AppDelegate.m */; };
 		7B548D7C1463F3F900DE32EB /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B548D7B1463F3F900DE32EB /* MasterViewController.m */; };
 		7B548D7F1463F3F900DE32EB /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B548D7E1463F3F900DE32EB /* DetailViewController.m */; };
-		7B548D821463F3F900DE32EB /* MasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B548D801463F3F900DE32EB /* MasterViewController_iPhone.xib */; };
-		7B548D851463F3F900DE32EB /* MasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B548D831463F3F900DE32EB /* MasterViewController_iPad.xib */; };
-		7B548D881463F3F900DE32EB /* DetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B548D861463F3F900DE32EB /* DetailViewController_iPhone.xib */; };
-		7B548D8B1463F3F900DE32EB /* DetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B548D891463F3F900DE32EB /* DetailViewController_iPad.xib */; };
 		7B548D931463F3F900DE32EB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B548D921463F3F900DE32EB /* SenTestingKit.framework */; };
 		7B548D941463F3F900DE32EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B548D681463F3F900DE32EB /* UIKit.framework */; };
 		7B548D951463F3F900DE32EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B548D6A1463F3F900DE32EB /* Foundation.framework */; };
@@ -85,10 +81,6 @@
 		7B548D7B1463F3F900DE32EB /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		7B548D7D1463F3F900DE32EB /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		7B548D7E1463F3F900DE32EB /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		7B548D811463F3F900DE32EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController_iPhone.xib; sourceTree = "<group>"; };
-		7B548D841463F3F900DE32EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController_iPad.xib; sourceTree = "<group>"; };
-		7B548D871463F3F900DE32EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController_iPhone.xib; sourceTree = "<group>"; };
-		7B548D8A1463F3F900DE32EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController_iPad.xib; sourceTree = "<group>"; };
 		7B548D911463F3F900DE32EB /* hackerNewsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hackerNewsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B548D921463F3F900DE32EB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		7B548D9A1463F3F900DE32EB /* hackerNewsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "hackerNewsTests-Info.plist"; sourceTree = "<group>"; };
@@ -201,10 +193,6 @@
 				7B548D7B1463F3F900DE32EB /* MasterViewController.m */,
 				7B548D7D1463F3F900DE32EB /* DetailViewController.h */,
 				7B548D7E1463F3F900DE32EB /* DetailViewController.m */,
-				7B548D801463F3F900DE32EB /* MasterViewController_iPhone.xib */,
-				7B548D831463F3F900DE32EB /* MasterViewController_iPad.xib */,
-				7B548D861463F3F900DE32EB /* DetailViewController_iPhone.xib */,
-				7B548D891463F3F900DE32EB /* DetailViewController_iPad.xib */,
 				7B548D6F1463F3F900DE32EB /* Supporting Files */,
 			);
 			path = hackerNews;
@@ -322,10 +310,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B548D731463F3F900DE32EB /* InfoPlist.strings in Resources */,
-				7B548D821463F3F900DE32EB /* MasterViewController_iPhone.xib in Resources */,
-				7B548D851463F3F900DE32EB /* MasterViewController_iPad.xib in Resources */,
-				7B548D881463F3F900DE32EB /* DetailViewController_iPhone.xib in Resources */,
-				7B548D8B1463F3F900DE32EB /* DetailViewController_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,38 +389,6 @@
 				7B548D721463F3F900DE32EB /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		7B548D801463F3F900DE32EB /* MasterViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7B548D811463F3F900DE32EB /* en */,
-			);
-			name = MasterViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		7B548D831463F3F900DE32EB /* MasterViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7B548D841463F3F900DE32EB /* en */,
-			);
-			name = MasterViewController_iPad.xib;
-			sourceTree = "<group>";
-		};
-		7B548D861463F3F900DE32EB /* DetailViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7B548D871463F3F900DE32EB /* en */,
-			);
-			name = DetailViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		7B548D891463F3F900DE32EB /* DetailViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7B548D8A1463F3F900DE32EB /* en */,
-			);
-			name = DetailViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 		7B548D9B1463F3F900DE32EB /* InfoPlist.strings */ = {

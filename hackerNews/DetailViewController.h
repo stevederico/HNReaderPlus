@@ -7,11 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Story.h"
 
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface DetailViewController : UIViewController <UISplitViewControllerDelegate,UIWebViewDelegate> {
 
-@property (strong, nonatomic) id detailItem;
+    Story *_story;
+    UIWebView *_webView;
 
-@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
+}
+
+
+@property (nonatomic, retain) Story *story;
+@property (nonatomic, retain) UIWebView *webView;
 
 @end

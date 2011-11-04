@@ -7,15 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "StoryFetcher.h"
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController {
+@interface MasterViewController : UITableViewController <StoryFetcherDelegate> {
     NSArray *_stories;
-    
+    StoryFetcher *_fetcher;
 }
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 @property (nonatomic, retain) NSArray *stories;
+@property (nonatomic, retain) StoryFetcher *fetcher;
 - (void)downloadStories;
 @end
