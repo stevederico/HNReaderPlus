@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B04697E1463FA4D00A728BA /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0469691463FA3400A728BA /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7B0469801463FA4D00A728BA /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B04696B1463FA3400A728BA /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7B0469821463FA4D00A728BA /* AFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B04696D1463FA3400A728BA /* AFImageCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7B0469841463FA4D00A728BA /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B04696F1463FA3400A728BA /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7B0469861463FA4D00A728BA /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0469711463FA3400A728BA /* AFJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7B0469881463FA4D00A728BA /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0469731463FA3400A728BA /* AFNetworkActivityIndicatorManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7B04698B1463FA4D00A728BA /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0469761463FA3400A728BA /* AFPropertyListRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7B04698D1463FA4D00A728BA /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0469781463FA3400A728BA /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7B04698F1463FA4D00A728BA /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B04697A1463FA3400A728BA /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7B0469911463FA4D00A728BA /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B04697C1463FA3400A728BA /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7B548D691463F3F900DE32EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B548D681463F3F900DE32EB /* UIKit.framework */; };
 		7B548D6B1463F3F900DE32EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B548D6A1463F3F900DE32EB /* Foundation.framework */; };
 		7B548D6D1463F3F900DE32EB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B548D6C1463F3F900DE32EB /* CoreGraphics.framework */; };
@@ -24,6 +34,9 @@
 		7B548D951463F3F900DE32EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B548D6A1463F3F900DE32EB /* Foundation.framework */; };
 		7B548D9D1463F3F900DE32EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B548D9B1463F3F900DE32EB /* InfoPlist.strings */; };
 		7B548DA01463F3F900DE32EB /* hackerNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B548D9F1463F3F900DE32EB /* hackerNewsTests.m */; };
+		7B548DF81463F4C600DE32EB /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B548DE11463F4AF00DE32EB /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7B548DFB1463F56200DE32EB /* StoryFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B548DFA1463F56200DE32EB /* StoryFetcher.m */; };
+		7B548DFE1463F56F00DE32EB /* Story.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B548DFD1463F56F00DE32EB /* Story.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,19 +50,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B0469681463FA3400A728BA /* AFHTTPClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
+		7B0469691463FA3400A728BA /* AFHTTPClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
+		7B04696A1463FA3400A728BA /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		7B04696B1463FA3400A728BA /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		7B04696C1463FA3400A728BA /* AFImageCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFImageCache.h; sourceTree = "<group>"; };
+		7B04696D1463FA3400A728BA /* AFImageCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFImageCache.m; sourceTree = "<group>"; };
+		7B04696E1463FA3400A728BA /* AFImageRequestOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFImageRequestOperation.h; sourceTree = "<group>"; };
+		7B04696F1463FA3400A728BA /* AFImageRequestOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFImageRequestOperation.m; sourceTree = "<group>"; };
+		7B0469701463FA3400A728BA /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestOperation.h; sourceTree = "<group>"; };
+		7B0469711463FA3400A728BA /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFJSONRequestOperation.m; sourceTree = "<group>"; };
+		7B0469721463FA3400A728BA /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		7B0469731463FA3400A728BA /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		7B0469741463FA3400A728BA /* AFNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		7B0469751463FA3400A728BA /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
+		7B0469761463FA3400A728BA /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
+		7B0469771463FA3400A728BA /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		7B0469781463FA3400A728BA /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		7B0469791463FA3400A728BA /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = "<group>"; };
+		7B04697A1463FA3400A728BA /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
+		7B04697B1463FA3400A728BA /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		7B04697C1463FA3400A728BA /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		7B548D641463F3F900DE32EB /* hackerNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackerNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B548D681463F3F900DE32EB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7B548D6A1463F3F900DE32EB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7B548D6C1463F3F900DE32EB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		7B548D701463F3F900DE32EB /* hackerNews-Info.plist */ = {isa = PBXFileReference; path = "hackerNews-Info.plist"; sourceTree = "<group>"; };
+		7B548D701463F3F900DE32EB /* hackerNews-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "hackerNews-Info.plist"; sourceTree = "<group>"; };
 		7B548D721463F3F900DE32EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7B548D741463F3F900DE32EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7B548D761463F3F900DE32EB /* hackerNews-Prefix.pch */ = {isa = PBXFileReference; path = "hackerNews-Prefix.pch"; sourceTree = "<group>"; };
-		7B548D771463F3F900DE32EB /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		7B548D761463F3F900DE32EB /* hackerNews-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "hackerNews-Prefix.pch"; sourceTree = "<group>"; };
+		7B548D771463F3F900DE32EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B548D781463F3F900DE32EB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7B548D7A1463F3F900DE32EB /* MasterViewController.h */ = {isa = PBXFileReference; path = MasterViewController.h; sourceTree = "<group>"; };
+		7B548D7A1463F3F900DE32EB /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		7B548D7B1463F3F900DE32EB /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		7B548D7D1463F3F900DE32EB /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
+		7B548D7D1463F3F900DE32EB /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		7B548D7E1463F3F900DE32EB /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		7B548D811463F3F900DE32EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController_iPhone.xib; sourceTree = "<group>"; };
 		7B548D841463F3F900DE32EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController_iPad.xib; sourceTree = "<group>"; };
@@ -57,10 +91,16 @@
 		7B548D8A1463F3F900DE32EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController_iPad.xib; sourceTree = "<group>"; };
 		7B548D911463F3F900DE32EB /* hackerNewsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hackerNewsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B548D921463F3F900DE32EB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		7B548D9A1463F3F900DE32EB /* hackerNewsTests-Info.plist */ = {isa = PBXFileReference; path = "hackerNewsTests-Info.plist"; sourceTree = "<group>"; };
+		7B548D9A1463F3F900DE32EB /* hackerNewsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "hackerNewsTests-Info.plist"; sourceTree = "<group>"; };
 		7B548D9C1463F3F900DE32EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		7B548D9E1463F3F900DE32EB /* hackerNewsTests.h */ = {isa = PBXFileReference; path = hackerNewsTests.h; sourceTree = "<group>"; };
+		7B548D9E1463F3F900DE32EB /* hackerNewsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hackerNewsTests.h; sourceTree = "<group>"; };
 		7B548D9F1463F3F900DE32EB /* hackerNewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hackerNewsTests.m; sourceTree = "<group>"; };
+		7B548DE01463F4AF00DE32EB /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		7B548DE11463F4AF00DE32EB /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		7B548DF91463F56200DE32EB /* StoryFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryFetcher.h; sourceTree = "<group>"; };
+		7B548DFA1463F56200DE32EB /* StoryFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryFetcher.m; sourceTree = "<group>"; };
+		7B548DFC1463F56F00DE32EB /* Story.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Story.h; sourceTree = "<group>"; };
+		7B548DFD1463F56F00DE32EB /* Story.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Story.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +127,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B0469671463FA3400A728BA /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				7B0469681463FA3400A728BA /* AFHTTPClient.h */,
+				7B0469691463FA3400A728BA /* AFHTTPClient.m */,
+				7B04696A1463FA3400A728BA /* AFHTTPRequestOperation.h */,
+				7B04696B1463FA3400A728BA /* AFHTTPRequestOperation.m */,
+				7B04696C1463FA3400A728BA /* AFImageCache.h */,
+				7B04696D1463FA3400A728BA /* AFImageCache.m */,
+				7B04696E1463FA3400A728BA /* AFImageRequestOperation.h */,
+				7B04696F1463FA3400A728BA /* AFImageRequestOperation.m */,
+				7B0469701463FA3400A728BA /* AFJSONRequestOperation.h */,
+				7B0469711463FA3400A728BA /* AFJSONRequestOperation.m */,
+				7B0469721463FA3400A728BA /* AFNetworkActivityIndicatorManager.h */,
+				7B0469731463FA3400A728BA /* AFNetworkActivityIndicatorManager.m */,
+				7B0469741463FA3400A728BA /* AFNetworking.h */,
+				7B0469751463FA3400A728BA /* AFPropertyListRequestOperation.h */,
+				7B0469761463FA3400A728BA /* AFPropertyListRequestOperation.m */,
+				7B0469771463FA3400A728BA /* AFURLConnectionOperation.h */,
+				7B0469781463FA3400A728BA /* AFURLConnectionOperation.m */,
+				7B0469791463FA3400A728BA /* AFXMLRequestOperation.h */,
+				7B04697A1463FA3400A728BA /* AFXMLRequestOperation.m */,
+				7B04697B1463FA3400A728BA /* UIImageView+AFNetworking.h */,
+				7B04697C1463FA3400A728BA /* UIImageView+AFNetworking.m */,
+			);
+			name = AFNetworking;
+			path = hackerNews/Frameworks/AFNetworking;
+			sourceTree = "<group>";
+		};
 		7B548D591463F3F900DE32EB = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +178,8 @@
 		7B548D671463F3F900DE32EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B0469671463FA3400A728BA /* AFNetworking */,
+				7B548DDF1463F4AF00DE32EB /* JSONKit */,
 				7B548D681463F3F900DE32EB /* UIKit.framework */,
 				7B548D6A1463F3F900DE32EB /* Foundation.framework */,
 				7B548D6C1463F3F900DE32EB /* CoreGraphics.framework */,
@@ -122,6 +193,10 @@
 			children = (
 				7B548D771463F3F900DE32EB /* AppDelegate.h */,
 				7B548D781463F3F900DE32EB /* AppDelegate.m */,
+				7B548DFC1463F56F00DE32EB /* Story.h */,
+				7B548DFD1463F56F00DE32EB /* Story.m */,
+				7B548DF91463F56200DE32EB /* StoryFetcher.h */,
+				7B548DFA1463F56200DE32EB /* StoryFetcher.m */,
 				7B548D7A1463F3F900DE32EB /* MasterViewController.h */,
 				7B548D7B1463F3F900DE32EB /* MasterViewController.m */,
 				7B548D7D1463F3F900DE32EB /* DetailViewController.h */,
@@ -163,6 +238,16 @@
 				7B548D9B1463F3F900DE32EB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7B548DDF1463F4AF00DE32EB /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				7B548DE01463F4AF00DE32EB /* JSONKit.h */,
+				7B548DE11463F4AF00DE32EB /* JSONKit.m */,
+			);
+			name = JSONKit;
+			path = hackerNews/Frameworks/JSONKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,10 +360,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B04697E1463FA4D00A728BA /* AFHTTPClient.m in Sources */,
+				7B0469801463FA4D00A728BA /* AFHTTPRequestOperation.m in Sources */,
+				7B0469821463FA4D00A728BA /* AFImageCache.m in Sources */,
+				7B0469841463FA4D00A728BA /* AFImageRequestOperation.m in Sources */,
+				7B0469861463FA4D00A728BA /* AFJSONRequestOperation.m in Sources */,
+				7B0469881463FA4D00A728BA /* AFNetworkActivityIndicatorManager.m in Sources */,
+				7B04698B1463FA4D00A728BA /* AFPropertyListRequestOperation.m in Sources */,
+				7B04698D1463FA4D00A728BA /* AFURLConnectionOperation.m in Sources */,
+				7B04698F1463FA4D00A728BA /* AFXMLRequestOperation.m in Sources */,
+				7B0469911463FA4D00A728BA /* UIImageView+AFNetworking.m in Sources */,
+				7B548DF81463F4C600DE32EB /* JSONKit.m in Sources */,
 				7B548D751463F3F900DE32EB /* main.m in Sources */,
 				7B548D791463F3F900DE32EB /* AppDelegate.m in Sources */,
 				7B548D7C1463F3F900DE32EB /* MasterViewController.m in Sources */,
 				7B548D7F1463F3F900DE32EB /* DetailViewController.m in Sources */,
+				7B548DFB1463F56200DE32EB /* StoryFetcher.m in Sources */,
+				7B548DFE1463F56F00DE32EB /* Story.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +572,7 @@
 				7B548DA51463F3F900DE32EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B548DA61463F3F900DE32EB /* Build configuration list for PBXNativeTarget "hackerNewsTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +581,7 @@
 				7B548DA81463F3F900DE32EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

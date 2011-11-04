@@ -10,8 +10,12 @@
 
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController
+@interface MasterViewController : UITableViewController {
+    NSArray *_stories;
+    
+}
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
-
+@property (nonatomic, retain) NSArray *stories;
+- (void)downloadStories;
 @end

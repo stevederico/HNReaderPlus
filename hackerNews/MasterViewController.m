@@ -7,45 +7,57 @@
 //
 
 #import "MasterViewController.h"
-
+#import "StoryFetcher.h"
 #import "DetailViewController.h"
 
 @implementation MasterViewController
 
-@synthesize detailViewController = _detailViewController;
+@synthesize detailViewController = _detailViewController,stories = _stories;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = NSLocalizedString(@"Master", @"Master");
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             self.clearsSelectionOnViewWillAppear = NO;
             self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
+            
         }
     }
     return self;
 }
 							
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self downloadStories];
 	// Do any additional setup after loading the view, typically from a nib.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
     }
 }
 
-- (void)viewDidUnload
-{
+- (void)downloadStories {
+    StoryFetcher *fetcher = [[StoryFetcher alloc] init];
+    fetcher.delegate = self;
+    [fetcher fetchStories];
+
+
+}
+
+- (void)storiesComplete:(NSArray*)newStories {
+    self.stories = newStories;
+    [self.tableView reloadData];
+}
+
+- (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -89,7 +101,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return [self.stories count];
 }
 
 // Customize the appearance of table view cells.
@@ -106,9 +118,11 @@
     }
 
     // Configure the cell.
-    cell.textLabel.text = NSLocalizedString(@"Detail", @"Detail");
+    cell.textLabel.text = [[self.stories objectAtIndex:indexPath.row] title];
     return cell;
 }
+
+
 
 /*
 // Override to support conditional editing of the table view.
