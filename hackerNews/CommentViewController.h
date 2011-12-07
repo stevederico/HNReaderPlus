@@ -17,4 +17,6 @@
 @property (nonatomic, retain) UIActivityIndicatorView *activityView;
 @property (nonatomic, retain) UILabel *l;
 - (void)handleTapFrom:(id)sender;
+- (void)addTap;
+- (void)fetchComments;
 @end

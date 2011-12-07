@@ -14,7 +14,6 @@
 @interface MasterViewController : UITableViewController <StoryFetcherDelegate,EGORefreshTableHeaderDelegate> {
     NSArray *_stories;
     StoryFetcher *_fetcher;
-    
 	EGORefreshTableHeaderView *_refreshHeaderView;
     BOOL _reloading;
 

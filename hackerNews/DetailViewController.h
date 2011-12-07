@@ -22,7 +22,6 @@
 @property (nonatomic, retain) NSArray *comments;
 
 - (void)handleTapFrom:(id)sender;
-- (void)handleSwipe:(id)sender;
 - (void)setupNavBar;
 
 @end

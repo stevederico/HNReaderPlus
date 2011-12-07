@@ -108,6 +108,16 @@
 	
 	[_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
     
+    // UITableView only moves in one direction, y axis
+    NSInteger currentOffset = scrollView.contentOffset.y;
+    NSInteger maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+        NSLog(@"%d",maximumOffset - currentOffset);
+    // Change 10.0 to adjust the distance from bottom
+    if (maximumOffset - currentOffset  <=70.0) {
+            NSLog(@"MORE!");
+    
+    }
+    
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
@@ -237,16 +247,14 @@
     [self.tableView reloadData];
     [self doneLoadingTableViewData];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(60, self.tableView.contentSize.height +180, 200 , 20)];
-    label.textAlignment = UITextAlignmentCenter;
-    label.backgroundColor = [UIColor clearColor];
-    label.shadowColor = [UIColor lightGrayColor];
-    label.shadowOffset = CGSizeMake(0, 1);
-    label.font = [UIFont fontWithName:@"Helvetica-BoldOblique" size:10.0];
-    label.text = @"Stay Hungry, Stay Foolish";
-    [self.tableView addSubview:label];
 }
 
+- (void)moreStories {
+    StoryFetcher *f = [[StoryFetcher alloc] init];
+    self.fetcher = f;
+    self.fetcher.delegate = self;
+    [self.fetcher fetchStories];
+}
 
 
 

@@ -16,7 +16,7 @@
 - (void)fetchStories {
    __block NSMutableArray *returnArray = [[NSMutableArray alloc] init];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.ihackernews.com/ask"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.ihackernews.com/page"]];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request 
     success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
@@ -28,7 +28,6 @@
            [returnArray addObject:[Story createStoryWithDictionary:item]];
            
         }
-       
  
         [self.delegate storiesComplete:returnArray];
         

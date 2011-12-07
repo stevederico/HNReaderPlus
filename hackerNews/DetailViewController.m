@@ -29,8 +29,8 @@
         self.webView.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
         [self.navigationController.navigationBar setAlpha:0.0];
         
-        self.activityView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(140, 180, 50, 50)];
-        self.l = [[UILabel alloc] initWithFrame:CGRectMake(120, 230, 100, 20)];
+       
+        self.l = [[UILabel alloc] initWithFrame:CGRectMake(115, 230, 100, 20)];
         self.l.text = @"Loading...";
         self.l.backgroundColor = [UIColor clearColor];
         self.l.textColor = [UIColor whiteColor];
@@ -38,6 +38,7 @@
         [self.l setFont:[UIFont fontWithName:@"Helvetica-Bold" size:17.0]];
         self.l.textAlignment = UITextAlignmentCenter;
         
+        self.activityView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(135, 180, 50, 50)];
         self.activityView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
         [self.activityView setAutoresizingMask:(UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin)];
         
@@ -60,7 +61,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+ 
     self.webView.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapFrom:)];
     tapRecognizer.numberOfTapsRequired = 1;
@@ -73,6 +74,8 @@
     
     [self.view addSubview:self.webView];
     
+  
+    
 }
 
 
@@ -82,6 +85,7 @@
     NSURLRequest *req = [[NSURLRequest alloc] initWithURL: [NSURL URLWithString:self.story.url]];
     
     [self.webView loadRequest:req];
+      [self setupNavBar];
 }
 
 
@@ -102,10 +106,10 @@
     
     NSLog(@"loading...");
     isLoading = TRUE;
-    
     [self.view addSubview:self.l];
     [self.activityView startAnimating];
     [self.view addSubview:self.activityView];
+
 
 }
 
@@ -114,7 +118,7 @@
     self.webView.backgroundColor = [UIColor whiteColor];
     [self.activityView setHidden:YES];
     [self.l setHidden:YES];
-     [self setupNavBar];
+   
 }
 
 
@@ -140,8 +144,6 @@
 #pragma DetailViewController
 
 - (void)handleTapFrom:(id)sender{
-
-    NSLog(@"TAP!");
 
     if (self.navigationController.navigationBar.alpha == 0.0) {
 
@@ -185,7 +187,6 @@
     [tools setBarStyle:UIBarStyleBlackTranslucent];
     
     NSMutableArray* buttons = [[NSMutableArray alloc] initWithCapacity:2];
-    NSLog(@"Comments %@",self.story.commentCount);
    
     UIBarButtonItem *bi = [[UIBarButtonItem alloc] initWithTitle:@"Comments" style:UIBarButtonItemStylePlain target:self action:@selector(showComments)];
     bi.style = UIBarButtonItemStyleBordered;
