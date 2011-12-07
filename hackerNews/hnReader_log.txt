@@ -1,0 +1,71 @@
+HN Reader
+
+11/3
+Setup AFNetworking
+Connected to api.ihackernews.com
+Parsed Response with JSONKIT
+
+11/4
+created StoryFetcher and StoryRecord
+Added Auto Resizing Table View Cells
+Added Pull to Refresh
+Added Icon
+
+11/19
+Hidhing naviagiton bar
+Added transparent navBar
+Added Transparent status bar
+Changed to Group Style
+Changed TableView background
+ADded Zooming
+
+11/20
+Added Swipe to go back
+added Loading
+Changed WebView background
+Protrait Only
+
+CommentViewController
+Removed HTML Tags from Comment Text
+Added Loading to Comments
+
+11/22
+Added New Icon
+Changed Pull to Refresh background
+Added Steve Jobs Easter Egg
+
+
+12/6
+removed swiping
+check to see if page has comments -added comment button check
+HN Landing Pages
+CommentsView show hide NavBar
+
+MUST
+-Add Share on Twitter - use black keyboard controller
+-scrolls through bottom - more entries
+
+NICE
+-FIX URls in commnets
+-Add WebView Caching on back
+-Shrink Y logo
+-settings - add one cell to bottom of items
+    -readbility on by default?
+    -social accounts
+    -About add credits to bottom of tableview
+    -Add navbar to main screen?
+    -Add Steve Jobs quote to very bottom
+
+SHIP
+-add Api rater 
+-add localytics
+-add crittercism
+-add 500 error check
+
+
+
+NO Usernames
+No Commenting
+No Posting
+No TimeStamps
+No Navbars

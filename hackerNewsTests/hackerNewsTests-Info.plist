@@ -12,13 +12,11 @@
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>.2</string>
 	<key>CFBundleDisplayName</key>
-	<string>HN Reader</string>
+	<string>Hacker News</string>
 </dict>
 </plist>

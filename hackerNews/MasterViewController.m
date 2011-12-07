@@ -16,14 +16,15 @@
 @synthesize detailViewController = _detailViewController,stories = _stories, fetcher = _fetcher;
 
 - (id)initWithStyle:(UITableViewStyle)style {
-    self = [super initWithStyle:style];
+    self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        self.title = @"HN Reader";
-
+        self.title = @"HNReader";
+        [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+   
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             self.clearsSelectionOnViewWillAppear = NO;
             self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
-         
+ 
         }
     }
     return self;
@@ -36,6 +37,36 @@
 
 #pragma mark - View lifecycle
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self setupRefreshHeader];
+    [self downloadStories];
+    [self setupNavBar];
+    
+}
+
+
+- (void)viewDidUnload {
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.5];
+    [self.navigationController.navigationBar setAlpha:0.0];
+    [UIView commitAnimations];
+}
+
+
+#pragma mark -
+#pragma mark Data Source Loading / Reloading Methods
+
 - (void)setupRefreshHeader{
 	if (_refreshHeaderView == nil) {
 		
@@ -43,20 +74,14 @@
 		view.delegate = self;
 		[self.tableView addSubview:view];
 		_refreshHeaderView = view;
-
-		
+        
 	}
 	
 	//  update the last update date
 	[_refreshHeaderView refreshLastUpdatedDate];
-
+    
 }
 
-
-
-
-#pragma mark -
-#pragma mark Data Source Loading / Reloading Methods
 
 - (void)reloadTableViewDataSource{
 	
@@ -114,86 +139,32 @@
 	
 }
 
+#pragma mark -
+#pragma mark UITableView Methods
 
-
-
-
-
-
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self setupRefreshHeader];
-       [self downloadStories];
-            self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-	// Do any additional setup after loading the view, typically from a nib.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
-    }
-}
-
-- (void)downloadStories {
-    StoryFetcher *f = [[StoryFetcher alloc] init];
-    self.fetcher = f;
-    self.fetcher.delegate = self;
-    [self.fetcher fetchStories];
-
-
-}
-
-- (void)storiesComplete:(NSArray*)newStories {
-    self.stories = newStories;
-//    [self.tableView reloadData];
-    [self doneLoadingTableViewData];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-	[super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
+    NSString *cellText = [[self.stories objectAtIndex:indexPath.row] title];
+    UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:17.0];
+    CGSize constraintSize = CGSizeMake(280.0f, 180.0f);
+    CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
+    
+    return labelSize.height + 40;
+    
 }
 
 
-
-
-// Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.stories count];
 }
 
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -203,35 +174,80 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
             cell.textLabel.numberOfLines = 0;
-            cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
+            cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+            cell.textLabel.backgroundColor = [UIColor clearColor];
+            cell.textLabel.shadowColor = [UIColor whiteColor];
+            cell.textLabel.shadowOffset = CGSizeMake(0, 1);
+            cell.backgroundColor = [UIColor lightTextColor];
             cell.selectionStyle = UITableViewCellSelectionStyleGray;
         }
     }
-
-    // Configure the cell.
+    
     cell.textLabel.text = [[self.stories objectAtIndex:indexPath.row] title];
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    NSString *cellText = [[self.stories objectAtIndex:indexPath.row] title];
-    UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:17.0];
-    CGSize constraintSize = CGSizeMake(280.0f, 180.0f);
-    CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
-    
-    return labelSize.height + 30;
-
-}
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
+    Story *newStory = [self.stories objectAtIndex:indexPath.row];
+    NSLog(@"%@",newStory.url);
+    if ([newStory.url rangeOfString:@"/comments/"].location != NSNotFound){
+        CommentViewController *cvc = [[CommentViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        cvc.story = newStory;
+        [self.navigationController pushViewController:cvc animated:YES];
+        
+        return;
+    }
+    
     self.detailViewController = [[DetailViewController alloc] init];
-    self.detailViewController.story = [self.stories objectAtIndex:indexPath.row];
-
+    self.detailViewController.story = newStory;  
+    
     [self.navigationController pushViewController:self.detailViewController animated:YES];
     
 }
+
+
+#pragma mark -
+#pragma mark MasterViewController Methods
+
+
+- (void)setupNavBar{
+
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationController.navigationBar.hidden = YES;
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
+    [self.navigationController.navigationBar setAlpha:0.0];
+    
+    self.tableView.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
+
+}
+
+
+- (void)downloadStories {
+    StoryFetcher *f = [[StoryFetcher alloc] init];
+    self.fetcher = f;
+    self.fetcher.delegate = self;
+    [self.fetcher fetchStories];
+}
+
+
+- (void)storiesComplete:(NSArray*)newStories {
+    self.stories = newStories;
+    [self.tableView reloadData];
+    [self doneLoadingTableViewData];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(60, self.tableView.contentSize.height +180, 200 , 20)];
+    label.textAlignment = UITextAlignmentCenter;
+    label.backgroundColor = [UIColor clearColor];
+    label.shadowColor = [UIColor lightGrayColor];
+    label.shadowOffset = CGSizeMake(0, 1);
+    label.font = [UIFont fontWithName:@"Helvetica-BoldOblique" size:10.0];
+    label.text = @"Stay Hungry, Stay Foolish";
+    [self.tableView addSubview:label];
+}
+
+
+
 
 @end

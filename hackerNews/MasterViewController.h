@@ -26,4 +26,6 @@
 - (void)downloadStories;
 - (void)reloadTableViewDataSource;
 - (void)doneLoadingTableViewData;
+- (void)setupNavBar;
+- (void)setupRefreshHeader;
 @end

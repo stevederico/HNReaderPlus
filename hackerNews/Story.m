@@ -9,21 +9,18 @@
 #import "Story.h"
 
 @implementation Story 
-@synthesize title = _title, url = url;
+@synthesize title = _title, url = url, idNumber = _idNumber,commentCount = _commentCount;
 
 + (Story*)createStoryWithDictionary:(NSDictionary*)dictionary {
 
     Story *story = [[Story alloc] init];
     story.title = [dictionary objectForKey:@"title"];
     story.url = [dictionary objectForKey:@"url"];
+    story.idNumber = [dictionary objectForKey:@"id"];  
+    story.commentCount = (NSNumber*)[dictionary objectForKey:@"commentCount"];
+    NSLog(@"Created Story with %@",story.idNumber);
 
     return  story;
 }
-
-//- (void)dealloc {
-//    self.title = nil;
-//    self.url = nil;
-//}
-
 
 @end

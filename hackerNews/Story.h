@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Story : NSObject {
-    NSString *_url;
-    NSString *_title;
-}
+@interface Story : NSObject 
+
 @property (nonatomic, retain) NSString *url;
 @property (nonatomic, retain) NSString *title;
+@property (nonatomic, retain) NSNumber *idNumber;
+@property (nonatomic, retain) NSNumber *commentCount;
 + (Story*)createStoryWithDictionary:(NSDictionary*)dictionary;
+
 
 @end
