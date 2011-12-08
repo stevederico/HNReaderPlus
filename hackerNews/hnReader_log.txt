@@ -48,29 +48,20 @@ Added Twitter
 Fixed Highlight Color
 Fixed Toolbar
 Adjusted Comments Loading Box
--Fix Back from comments indicator
--Comments Activity Monitor Pushed Down
 
 MUST
 
 
 NICE
--scrolls through bottom - more entries
+-Fix Back from comments indicator
+-Comments Activity Monitor Pushed Down
 -Fix Stay Hungry
--FIX URls in commnets
 -Add WebView Caching on back
 -Shrink Y logo
--settings - add one cell to bottom of items
-    -readbility on by default?
-    -social accounts
-    -About add credits to bottom of tableview
-    -Add navbar to main screen?
-    -Add Steve Jobs quote to very bottom
 
 SHIP
--remove logs
+-remove NSlogs
 -profile
--add Api rater 
 -add localytics
 -add crittercism
 -add 500 error check
