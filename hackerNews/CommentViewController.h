@@ -19,4 +19,5 @@
 - (void)handleTapFrom:(id)sender;
 - (void)addTap;
 - (void)fetchComments;
+- (void)commentsFailed;
 @end

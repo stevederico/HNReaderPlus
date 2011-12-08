@@ -166,6 +166,14 @@
     
 }
 
+- (void)commentsFailed{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Comments Not Currently Available" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    [self.navigationController popViewControllerAnimated:YES];
+
+    
+}
+
 
 
 @end

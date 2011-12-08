@@ -12,6 +12,7 @@
 
 @required
 - (void)commentsComplete:(NSArray*)newComments;
+- (void)commentsFailed;
 
 @end
 

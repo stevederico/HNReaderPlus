@@ -240,12 +240,13 @@
     
 }
 
-- (void)moreStories {
-    StoryFetcher *f = [[StoryFetcher alloc] init];
-    self.fetcher = f;
-    self.fetcher.delegate = self;
-    [self.fetcher fetchStories];
+- (void)storiesFailed{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Stories Not Currently Available" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    
 }
+
+
 
 
 

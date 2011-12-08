@@ -12,7 +12,7 @@
 
 @required
 - (void)storiesComplete:(NSArray*)newStories;
-
+- (void)storiesFailed;
 @end
 
 @interface StoryFetcher : NSObject {

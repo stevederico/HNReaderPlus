@@ -41,9 +41,7 @@
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
             NSLog(@"Failure %@",error);
             
-            UIAlertView *alert;
-            alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%d",error.code] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
+            [self.delegate commentsFailed];
             
             
             
