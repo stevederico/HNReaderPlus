@@ -21,7 +21,7 @@
         self.activityView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
         [self.activityView setAutoresizingMask:(UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin)];
         
-        self.l = [[UILabel alloc] initWithFrame:CGRectMake(120, 230, 100, 20)];
+        self.l = [[UILabel alloc] initWithFrame:CGRectMake(115, 230, 100, 20)];
         self.l.text = @"Loading...";
         self.l.backgroundColor = [UIColor clearColor];
         self.l.textColor = [UIColor whiteColor];
@@ -160,13 +160,6 @@
     
     [self.activityView setHidden:YES];
     [self.l setHidden:YES];
-    
-    if ([newComments count]==0) {
-        UIAlertView *a = [[UIAlertView alloc] initWithTitle:@"No Comments" message:@"There are no comments available for this post." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [a show];
-        [self.navigationController popViewControllerAnimated:YES];
-        
-    }
     
     self.comments = newComments;
     [self.tableView reloadData];

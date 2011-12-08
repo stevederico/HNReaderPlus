@@ -108,16 +108,6 @@
 	
 	[_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
     
-    // UITableView only moves in one direction, y axis
-    NSInteger currentOffset = scrollView.contentOffset.y;
-    NSInteger maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
-        NSLog(@"%d",maximumOffset - currentOffset);
-    // Change 10.0 to adjust the distance from bottom
-    if (maximumOffset - currentOffset  <=70.0) {
-            NSLog(@"MORE!");
-    
-    }
-    
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
@@ -190,6 +180,7 @@
             cell.textLabel.shadowOffset = CGSizeMake(0, 1);
             cell.backgroundColor = [UIColor lightTextColor];
             cell.selectionStyle = UITableViewCellSelectionStyleGray;
+            cell.textLabel.highlightedTextColor = [UIColor blackColor];
         }
     }
     

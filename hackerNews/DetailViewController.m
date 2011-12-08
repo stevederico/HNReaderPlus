@@ -5,8 +5,9 @@
 //  Created by Stephen Derico on 11/4/11.
 //  Copyright (c) 2011 Bixby Apps. All rights reserved.
 //
-
 #import "DetailViewController.h"
+#import <Twitter/TWTweetComposeViewController.h>
+#import <Accounts/Accounts.h>
 
 @implementation DetailViewController
 
@@ -66,6 +67,7 @@
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapFrom:)];
     tapRecognizer.numberOfTapsRequired = 1;
     tapRecognizer.delegate = self;
+    
     
     UIWebView *web = [[UIWebView alloc] initWithFrame:self.view.bounds];
     self.webView.delegate = self;
@@ -163,44 +165,74 @@
     
 }
 
-
-- (void) showComments{
+- (void) showComments{    
+   CommentViewController *cvc = [[CommentViewController alloc] initWithStyle:UITableViewStyleGrouped];
+   cvc.story = self.story;
+   [self.navigationController pushViewController:cvc animated:YES];
+}
+- (void) sendTweet{
     
-    CommentViewController *cvc = [[CommentViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    cvc.story = self.story;
-    [self.navigationController pushViewController:cvc animated:YES];
+    if([TWTweetComposeViewController canSendTweet]) {
+        
+        TWTweetComposeViewController *controller = [[TWTweetComposeViewController alloc] init];
+         [controller setInitialText:self.story.title];
+        [controller addURL:[NSURL URLWithString:self.story.url]];
+        [self.navigationController presentModalViewController:controller animated:YES];
+        controller.completionHandler = ^(TWTweetComposeViewControllerResult result)  {
+            
+            [self dismissModalViewControllerAnimated:YES];
+            
+            switch (result) {
+                case TWTweetComposeViewControllerResultCancelled:
+                    break;
+                    
+                case TWTweetComposeViewControllerResultDone:
+                    break;
+                    
+                default:
+                    break;
+            }
+        };
+    }else {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=TWITTER"]];
+    }
     
 }
 
 
 - (void)setupNavBar {
      if (self.story.commentCount.intValue == 0) {
-         UIBarButtonItem *bShare = [[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonItemStylePlain target:self action:@selector(share:)];
-         bShare = [[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonItemStylePlain target:nil action:nil];
-         bShare.style = UIBarButtonItemStyleBordered;
-         self.navigationItem.rightBarButtonItem = bShare;
+         UIBarButtonItem *tButton = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStylePlain target:self action:@selector(sendTweet)];
+         tButton.style = UIBarButtonItemStyleBordered;
+         self.navigationItem.rightBarButtonItem = tButton;
          return;
      }
     
-    UIToolbar* tools = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 150, 44.01)];
-    [tools setBackgroundColor:[UIColor clearColor]];
-    [tools setBarStyle:UIBarStyleBlackTranslucent];
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, -1, 150, 44)];
+    [toolbar setBarStyle:-1];
+    [toolbar setTintColor:[UIColor blackColor]];
     
-    NSMutableArray* buttons = [[NSMutableArray alloc] initWithCapacity:2];
+    
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+
+    UIBarButtonItem *cButton = [[UIBarButtonItem alloc] initWithTitle:@"Comments" style:UIBarButtonItemStylePlain target:self action:@selector(showComments)];
+    cButton.style = UIBarButtonItemStyleBordered;
+    [array addObject:cButton];
+    [cButton setTintColor:[UIColor blackColor]];
+
+  
+    
+    UIBarButtonItem *tButton = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStylePlain target:self action:@selector(sendTweet)];
+    tButton.style = UIBarButtonItemStyleBordered;
+        [array addObject:tButton];
+    
+    [toolbar setItems:array];
+    
+    UIBarButtonItem *twoButtons = [[UIBarButtonItem alloc] initWithCustomView:toolbar];
+
+    self.navigationItem.rightBarButtonItem = twoButtons;
+
    
-    UIBarButtonItem *bi = [[UIBarButtonItem alloc] initWithTitle:@"Comments" style:UIBarButtonItemStylePlain target:self action:@selector(showComments)];
-    bi.style = UIBarButtonItemStyleBordered;
-    [buttons addObject:bi];
-
-    UIBarButtonItem *bShare = [[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonItemStylePlain target:self action:@selector(share:)];
-    bShare = [[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonItemStylePlain target:nil action:nil];
-    bShare.style = UIBarButtonItemStyleBordered;
-    [buttons addObject:bShare];
-
-    [tools setItems:buttons animated:NO];
-        
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:tools];
-    
 }
 
 

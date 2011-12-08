@@ -43,13 +43,19 @@ CommentsView show hide NavBar
 Cleaned Up Code
 Changed CommentView Spacing
 
-MUST
--Add Share on Twitter - use black keyboard controller
--scrolls through bottom - more entries
--Fix Toolbar
+12/7
+Added Twitter
+Fixed Highlight Color
+Fixed Toolbar
+Adjusted Comments Loading Box
 -Fix Back from comments indicator
 -Comments Activity Monitor Pushed Down
+
+MUST
+
+
 NICE
+-scrolls through bottom - more entries
 -Fix Stay Hungry
 -FIX URls in commnets
 -Add WebView Caching on back
