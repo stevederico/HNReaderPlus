@@ -48,10 +48,7 @@ Added Twitter
 Fixed Highlight Color
 Fixed Toolbar
 Adjusted Comments Loading Box
-<<<<<<< HEAD
-=======
 
->>>>>>> e7963ba6a041978e10afec37cee59aaefd2766c2
 
 MUST
 
@@ -59,32 +56,8 @@ MUST
 NICE
 -Fix Back from comments indicator
 -Comments Activity Monitor Pushed Down
-<<<<<<< HEAD
--Fix Stay Hungry
--Add WebView Caching on back
--Shrink Y logo
-=======
->>>>>>> e7963ba6a041978e10afec37cee59aaefd2766c2
-
-SHIP
--remove NSlogs
--profile
-<<<<<<< HEAD
--add localytics
--add crittercism
--add 500 error check
 
 
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(60, self.tableView.contentSize.height +180, 200 , 20)];
-    label.textAlignment = UITextAlignmentCenter;
-    label.backgroundColor = [UIColor clearColor];
-    label.shadowColor = [UIColor lightGrayColor];
-    label.shadowOffset = CGSizeMake(0, 1);
-    label.font = [UIFont fontWithName:@"Helvetica-BoldOblique" size:10.0];
-    label.text = @"Stay Hungry, Stay Foolish";
-    [self.tableView addSubview:label];
 
-=======
->>>>>>> e7963ba6a041978e10afec37cee59aaefd2766c2
 
 No Navbars
