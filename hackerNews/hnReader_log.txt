@@ -48,46 +48,17 @@ Added Twitter
 Fixed Highlight Color
 Fixed Toolbar
 Adjusted Comments Loading Box
--Fix Back from comments indicator
--Comments Activity Monitor Pushed Down
+
 
 MUST
 
 
 NICE
--scrolls through bottom - more entries
--Fix Stay Hungry
--FIX URls in commnets
--Add WebView Caching on back
--Shrink Y logo
--settings - add one cell to bottom of items
-    -readbility on by default?
-    -social accounts
-    -About add credits to bottom of tableview
-    -Add navbar to main screen?
-    -Add Steve Jobs quote to very bottom
+-Fix Back from comments indicator
+-Comments Activity Monitor Pushed Down
 
 SHIP
 -remove logs
 -profile
--add Api rater 
--add localytics
--add crittercism
--add 500 error check
 
-
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(60, self.tableView.contentSize.height +180, 200 , 20)];
-    label.textAlignment = UITextAlignmentCenter;
-    label.backgroundColor = [UIColor clearColor];
-    label.shadowColor = [UIColor lightGrayColor];
-    label.shadowOffset = CGSizeMake(0, 1);
-    label.font = [UIFont fontWithName:@"Helvetica-BoldOblique" size:10.0];
-    label.text = @"Stay Hungry, Stay Foolish";
-    [self.tableView addSubview:label];
-
-
-NO Usernames
-No Commenting
-No Posting
-No TimeStamps
 No Navbars
