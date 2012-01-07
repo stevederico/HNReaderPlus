@@ -11,6 +11,7 @@
 #import "DetailViewController.h"
 
 
+
 @implementation MasterViewController
 
 @synthesize detailViewController = _detailViewController,stories = _stories, fetcher = _fetcher;
@@ -18,14 +19,10 @@
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        self.title = @"HNReader";
+        self.title = @"HackerNews+";
         [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
    
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-            self.clearsSelectionOnViewWillAppear = NO;
-            self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
- 
-        }
+//    
     }
     return self;
 }
@@ -39,7 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self setupRefreshHeader];
     [self downloadStories];
     [self setupNavBar];
@@ -57,6 +54,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    if ([self.stories count] == 0) {
+        [self downloadStories];
+    }
+   
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.5];
     [self.navigationController.navigationBar setAlpha:0.0];
@@ -178,9 +179,10 @@
             cell.textLabel.backgroundColor = [UIColor clearColor];
             cell.textLabel.shadowColor = [UIColor whiteColor];
             cell.textLabel.shadowOffset = CGSizeMake(0, 1);
+            cell.textLabel.highlightedTextColor = [UIColor blackColor];
             cell.backgroundColor = [UIColor lightTextColor];
             cell.selectionStyle = UITableViewCellSelectionStyleGray;
-            cell.textLabel.highlightedTextColor = [UIColor blackColor];
+         
         }
     }
     
@@ -206,6 +208,27 @@
     
     [self.navigationController pushViewController:self.detailViewController animated:YES];
     
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+
+    SDFooterButton *footerButton = [[SDFooterButton alloc] init];
+    [footerButton.button.titleLabel setShadowColor:[UIColor whiteColor]];
+    [footerButton.button setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
+     footerButton.button.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    footerButton.button.titleLabel.backgroundColor = [UIColor clearColor];
+
+    footerButton.button.titleLabel.shadowOffset = CGSizeMake(0, 1);
+    footerButton.button.titleLabel.highlightedTextColor = [UIColor blackColor];
+    footerButton.delegate = self;
+    
+    return footerButton;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    
+    return 75;
+
 }
 
 
@@ -246,7 +269,26 @@
     
 }
 
+-(void)footerButtonTapped{
 
+    NSLog(@"Feedback Tapped");
+    
+    MFMailComposeViewController *mcv = [[MFMailComposeViewController alloc] init];
+    mcv.mailComposeDelegate = self;
+    mcv.navigationBar.tintColor = [UIColor blackColor];
+    [mcv setSubject:@"HackerNews+ Feedback"];
+    [mcv setToRecipients:[NSArray arrayWithObject:@"steve@bixbyapps.com"]];
+    [self.navigationController presentModalViewController:mcv animated:YES];
+
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+
+    
+        [self dismissModalViewControllerAnimated:YES];
+    
+
+}
 
 
 

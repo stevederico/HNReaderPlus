@@ -37,6 +37,9 @@
 		7B548DFE1463F56F00DE32EB /* Story.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B548DFD1463F56F00DE32EB /* Story.m */; };
 		7BA0B024147C6C690013E4B6 /* HNReader.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BA0B023147C6C680013E4B6 /* HNReader.png */; };
 		7BA0B026147C7D860013E4B6 /* HNReader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BA0B025147C7D860013E4B6 /* HNReader@2x.png */; };
+		7BA14D7314B900E0002475D4 /* SDFooterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA14D7214B900E0002475D4 /* SDFooterButton.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7BA14D7914B90197002475D4 /* gray_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BA14D7814B90197002475D4 /* gray_button.png */; };
+		7BA14D7B14B90782002475D4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA14D7A14B90782002475D4 /* MessageUI.framework */; };
 		7BA4E59E1464AF55004A1FE2 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA4E5941464AF55004A1FE2 /* EGORefreshTableHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7BA4E59F1464AF55004A1FE2 /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BA4E5961464AF55004A1FE2 /* blackArrow.png */; };
 		7BA4E5A01464AF55004A1FE2 /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BA4E5971464AF55004A1FE2 /* blackArrow@2x.png */; };
@@ -116,6 +119,10 @@
 		7B548DFD1463F56F00DE32EB /* Story.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Story.m; sourceTree = "<group>"; };
 		7BA0B023147C6C680013E4B6 /* HNReader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HNReader.png; sourceTree = "<group>"; };
 		7BA0B025147C7D860013E4B6 /* HNReader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HNReader@2x.png"; sourceTree = "<group>"; };
+		7BA14D7114B900E0002475D4 /* SDFooterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDFooterButton.h; path = ../SDFooterButton.h; sourceTree = "<group>"; };
+		7BA14D7214B900E0002475D4 /* SDFooterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SDFooterButton.m; path = ../SDFooterButton.m; sourceTree = "<group>"; };
+		7BA14D7814B90197002475D4 /* gray_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gray_button.png; sourceTree = "<group>"; };
+		7BA14D7A14B90782002475D4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		7BA4E5931464AF55004A1FE2 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
 		7BA4E5941464AF55004A1FE2 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
 		7BA4E5961464AF55004A1FE2 /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
@@ -142,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BA14D7B14B90782002475D4 /* MessageUI.framework in Frameworks */,
 				7BD039C71490311800115C4D /* Accounts.framework in Frameworks */,
 				7BD039C414902DFC00115C4D /* Twitter.framework in Frameworks */,
 				7BA4E5AC1464B139004A1FE2 /* QuartzCore.framework in Frameworks */,
@@ -196,6 +204,8 @@
 		7B1189B81478A54F00B09791 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7BA14D7114B900E0002475D4 /* SDFooterButton.h */,
+				7BA14D7214B900E0002475D4 /* SDFooterButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -223,6 +233,7 @@
 		7B548D671463F3F900DE32EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7BA14D7A14B90782002475D4 /* MessageUI.framework */,
 				7BD039C61490311800115C4D /* Accounts.framework */,
 				7BD039C314902DFB00115C4D /* Twitter.framework */,
 				7BA4E5AB1464B139004A1FE2 /* QuartzCore.framework */,
@@ -253,6 +264,7 @@
 		7B548D6F1463F3F900DE32EB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7BA14D7814B90197002475D4 /* gray_button.png */,
 				7BA0B025147C7D860013E4B6 /* HNReader@2x.png */,
 				7BA0B023147C6C680013E4B6 /* HNReader.png */,
 				7B04699E1464A6D900A728BA /* clean.css */,
@@ -462,6 +474,7 @@
 				7B1189BA1478B94C00B09791 /* hnReader_log.txt in Resources */,
 				7BA0B024147C6C690013E4B6 /* HNReader.png in Resources */,
 				7BA0B026147C7D860013E4B6 /* HNReader@2x.png in Resources */,
+				7BA14D7914B90197002475D4 /* gray_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +530,7 @@
 				7BCC4207147A232F001F7A10 /* Comment.m in Sources */,
 				7BCC420C147A243F001F7A10 /* CommentFetcher.m in Sources */,
 				7BCC4211147A2F9D001F7A10 /* CommentViewController.m in Sources */,
+				7BA14D7314B900E0002475D4 /* SDFooterButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -49,6 +49,8 @@ Fixed Highlight Color
 Fixed Toolbar
 Adjusted Comments Loading Box
 
+1/7
+Added FooterViewButton
 
 MUST
 
