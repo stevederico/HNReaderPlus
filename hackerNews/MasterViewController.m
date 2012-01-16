@@ -277,7 +277,7 @@
     mcv.mailComposeDelegate = self;
     mcv.navigationBar.tintColor = [UIColor blackColor];
     [mcv setSubject:@"HackerNews+ Feedback"];
-    [mcv setToRecipients:[NSArray arrayWithObject:@"steve@bixbyapps.com"]];
+    [mcv setToRecipients:[NSArray arrayWithObject:@"hnplus@bixbyapps.com"]];
     [self.navigationController presentModalViewController:mcv animated:YES];
 
 }
