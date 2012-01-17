@@ -20,16 +20,16 @@
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
         self.title = @"HackerNews+";
-        [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
-   
-//    
+      
     }
     return self;
 }
 							
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
+    self.stories = nil;
+    self.fetcher = nil;
+    
 }
 
 #pragma mark - View lifecycle
@@ -54,7 +54,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    if ([self.stories count] == 0) {
+    if (!self.stories) {
         [self downloadStories];
     }
    
@@ -155,11 +155,6 @@
 }
 
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.stories count];
 }
@@ -171,7 +166,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+    
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
             cell.textLabel.numberOfLines = 0;
@@ -182,8 +177,6 @@
             cell.textLabel.highlightedTextColor = [UIColor blackColor];
             cell.backgroundColor = [UIColor lightTextColor];
             cell.selectionStyle = UITableViewCellSelectionStyleGray;
-         
-        }
     }
     
     cell.textLabel.text = [[self.stories objectAtIndex:indexPath.row] title];
@@ -195,6 +188,7 @@
     
     Story *newStory = [self.stories objectAtIndex:indexPath.row];
     NSLog(@"%@",newStory.url);
+    
     if ([newStory.url rangeOfString:@"/comments/"].location != NSNotFound){
         CommentViewController *cvc = [[CommentViewController alloc] initWithStyle:UITableViewStyleGrouped];
         cvc.story = newStory;
@@ -226,9 +220,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    
     return 75;
-
 }
 
 
@@ -270,8 +262,6 @@
 }
 
 -(void)footerButtonTapped{
-
-    NSLog(@"Feedback Tapped");
     
     MFMailComposeViewController *mcv = [[MFMailComposeViewController alloc] init];
     mcv.mailComposeDelegate = self;
@@ -283,11 +273,7 @@
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
-
-    
         [self dismissModalViewControllerAnimated:YES];
-    
-
 }
 
 

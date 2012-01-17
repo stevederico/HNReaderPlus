@@ -17,11 +17,11 @@
         self.title = @"Comments";
         self.tableView.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
         
-        self.activityView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(135, 180, 50, 50)];
+        self.activityView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(135, 150, 50, 50)];
         self.activityView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
         [self.activityView setAutoresizingMask:(UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin)];
         
-        self.l = [[UILabel alloc] initWithFrame:CGRectMake(115, 230, 100, 20)];
+        self.l = [[UILabel alloc] initWithFrame:CGRectMake(115, 200, 100, 20)];
         self.l.text = @"Loading...";
         self.l.backgroundColor = [UIColor clearColor];
         self.l.textColor = [UIColor whiteColor];

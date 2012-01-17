@@ -59,6 +59,8 @@ NICE
 -Fix Back from comments indicator
 -Comments Activity Monitor Pushed Down
 
+-delegates weak
+
 
 
 

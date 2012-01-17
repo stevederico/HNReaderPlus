@@ -21,7 +21,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        [self.view setFrame:self.view.bounds];
+        [self.view setFrame:CGRectZero];
          
         self.webView.scalesPageToFit = YES;
         self.webView.multipleTouchEnabled = YES;
