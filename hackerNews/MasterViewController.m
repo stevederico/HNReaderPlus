@@ -11,6 +11,15 @@
 #import "DetailViewController.h"
 
 
+@interface MasterViewController (){
+
+	EGORefreshTableHeaderView *_refreshHeaderView;
+    BOOL _reloading;
+    
+}
+
+
+@end
 
 @implementation MasterViewController
 
@@ -19,7 +28,7 @@
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        self.title = @"HackerNews+";
+        self.title = @"HackerNews";
       
     }
     return self;
@@ -256,8 +265,8 @@
 }
 
 - (void)storiesFailed{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Stories Not Currently Available" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Stories Not Currently Available" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//    [alert show];
     
 }
 
@@ -267,7 +276,7 @@
     mcv.mailComposeDelegate = self;
     mcv.navigationBar.tintColor = [UIColor blackColor];
     [mcv setSubject:@"HackerNews+ Feedback"];
-    [mcv setToRecipients:[NSArray arrayWithObject:@"hnplus@bixbyapps.com"]];
+    [mcv setToRecipients:[NSArray arrayWithObject:@"support@bixbyapps.com"]];
     [self.navigationController presentModalViewController:mcv animated:YES];
 
 }

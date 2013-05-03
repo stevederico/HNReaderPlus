@@ -19,34 +19,35 @@
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.ihackernews.com/post/%@",idString]]];
     NSLog(@"STRING %@",idString);
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request 
-                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                                                            
-            NSArray *iArray = [JSON valueForKeyPath:@"comments"];
-            NSString *textString = [JSON valueForKeyPath:@"text"];
-            if (textString.length >0) {
-                NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
-                [tempDict setValue:textString forKey:@"comment"];
-                [returnArray addObject:[Comment createCommentWithDictionary:tempDict]];
-            }
-                                                                      
-                                                                                            
-            for (NSDictionary *item in iArray) {
-                [returnArray addObject:[Comment createCommentWithDictionary:item]];
-                NSLog(@"Comment %@",[item objectForKey:@"comment"]);
-            }
-            
-            [self.delegate commentsComplete:returnArray];
-            
-        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-            NSLog(@"Failure %@",error);
-            
-            [self.delegate commentsFailed];
-            
-            
-            
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"SUCCESS %@",JSON);
+        
+        
+        NSArray *iArray = [JSON valueForKeyPath:@"comments"];
+        NSString *textString = [JSON valueForKeyPath:@"text"];
+        if (textString.length >0) {
+            NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
+            [tempDict setValue:textString forKey:@"comment"];
+            [returnArray addObject:[Comment createCommentWithDictionary:tempDict]];
         }
-                                         ];
+        
+        
+        for (NSDictionary *item in iArray) {
+            [returnArray addObject:[Comment createCommentWithDictionary:item]];
+            NSLog(@"Comment %@",[item objectForKey:@"comment"]);
+            
+                 [self.delegate commentsFailed];
+        }
+        
+        [self.delegate commentsComplete:returnArray];
+        
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"FAILED %@",JSON);
+    }];
+    
+
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperation:operation];
     

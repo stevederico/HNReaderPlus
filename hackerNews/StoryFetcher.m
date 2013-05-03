@@ -17,23 +17,27 @@
     __block NSMutableArray *returnArray = [[NSMutableArray alloc] init];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.ihackernews.com/page"]];
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request 
-                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                                                            
-                                                                                            NSArray *iArray = [JSON valueForKeyPath:@"items"];
-                                                                                            
-                                                                                            for (NSDictionary *item in iArray) {
-                                                                                                [returnArray addObject:[Story createStoryWithDictionary:item]];
-                                                                                            }
-                                                                                            
-                                                                                            [self.delegate storiesComplete:returnArray];
-                                                                                            
-                                                                                        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                                                                            
-                                                                                            [self.delegate storiesFailed];
-                                                                                            
-                                                                                        }
-                                         ];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"SUCCESS %@",JSON);
+        
+        NSArray *iArray = [JSON valueForKeyPath:@"items"];
+        
+        for (NSDictionary *item in iArray) {
+            [returnArray addObject:[Story createStoryWithDictionary:item]];
+        }
+        
+        [self.delegate storiesComplete:returnArray];
+        
+        
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"FAILED %@", error.description);
+        
+          [self.delegate storiesFailed];
+    }];
+    
+    
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperation:operation];
     

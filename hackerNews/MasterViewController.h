@@ -14,17 +14,11 @@
 
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController <StoryFetcherDelegate,EGORefreshTableHeaderDelegate,SDFooterButtonDelegate,MFMailComposeViewControllerDelegate > {
-    NSArray *_stories;
-    StoryFetcher *_fetcher;
-	EGORefreshTableHeaderView *_refreshHeaderView;
-    BOOL _reloading;
+@interface MasterViewController : UITableViewController <StoryFetcherDelegate,EGORefreshTableHeaderDelegate,SDFooterButtonDelegate,MFMailComposeViewControllerDelegate >
 
-}
-
-@property (strong, nonatomic) DetailViewController *detailViewController;
-@property (nonatomic, retain) NSArray *stories;
-@property (nonatomic, retain) StoryFetcher *fetcher;
+@property (nonatomic, strong) DetailViewController *detailViewController;
+@property (nonatomic, strong) NSArray *stories;
+@property (nonatomic, strong) StoryFetcher *fetcher;
 - (void)downloadStories;
 - (void)reloadTableViewDataSource;
 - (void)doneLoadingTableViewData;

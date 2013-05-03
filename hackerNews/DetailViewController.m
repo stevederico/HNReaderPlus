@@ -88,6 +88,14 @@
     
     [self.webView loadRequest:req];
       [self setupNavBar];
+    
+    NSDictionary *articleParams =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     self.story.title, @"Title", // Capture author info
+     self.story.url, @"URL", // Capture user status
+     nil];
+    
+    [Flurry logEvent:@"Article_Read" withParameters:articleParams];
 }
 
 
@@ -174,6 +182,16 @@
     
     if([TWTweetComposeViewController canSendTweet]) {
         
+        
+        NSDictionary *articleParams =
+        [NSDictionary dictionaryWithObjectsAndKeys:
+         self.story.title, @"Title", // Capture author info
+         self.story.url, @"URL", // Capture user status
+         nil];
+        
+        [Flurry logEvent:@"Article Tweeted" withParameters:articleParams];
+        
+        
         TWTweetComposeViewController *controller = [[TWTweetComposeViewController alloc] init];
          [controller setInitialText:self.story.title];
         [controller addURL:[NSURL URLWithString:self.story.url]];
@@ -215,10 +233,10 @@
     
     NSMutableArray *array = [[NSMutableArray alloc] init];
 
-    UIBarButtonItem *cButton = [[UIBarButtonItem alloc] initWithTitle:@"Comments" style:UIBarButtonItemStylePlain target:self action:@selector(showComments)];
-    cButton.style = UIBarButtonItemStyleBordered;
-    [array addObject:cButton];
-    [cButton setTintColor:[UIColor blackColor]];
+//    UIBarButtonItem *cButton = [[UIBarButtonItem alloc] initWithTitle:@"Comments" style:UIBarButtonItemStylePlain target:self action:@selector(showComments)];
+//    cButton.style = UIBarButtonItemStyleBordered;
+//    [array addObject:cButton];
+//    [cButton setTintColor:[UIColor blackColor]];
 
   
     
@@ -228,9 +246,9 @@
     
     [toolbar setItems:array];
     
-    UIBarButtonItem *twoButtons = [[UIBarButtonItem alloc] initWithCustomView:toolbar];
+//    UIBarButtonItem *twoButtons = [[UIBarButtonItem alloc] initWithCustomView:toolbar];
 
-    self.navigationItem.rightBarButtonItem = twoButtons;
+    self.navigationItem.rightBarButtonItem = tButton;
 
    
 }

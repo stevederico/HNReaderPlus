@@ -52,6 +52,36 @@ Adjusted Comments Loading Box
 1/7
 Added FooterViewButton
 
+
+4/14/2013
+Added iPhone 5 Support
+Set to v1.1
+Improved Error Handling
+Cleaned Up UI
+Removed Comments
+Added Flurry
+
+- Add Analytics
+- Fix API Issues
+- Make SDIncrementalStoreManager?
+
+
+
+1.2
+- Add Buffer Support
+- Remove Comments
+- Lighter Background
+- Fix No Stories Problem
+- Change Email Address
+- Readability
+- Updates AFNetworking and JSON Framework
+- Toolbar navigate inside webview
+-http://www.readability.com/developers/api/parser
+
+
+
+
+
 MUST
 
 
